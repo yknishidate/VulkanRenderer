@@ -7,8 +7,6 @@
 
 #include "model.h"
 
-#include "FrameBuffer.h"
-
 /*
 ========================================================================================================
 
@@ -56,8 +54,7 @@ bool Shader::Load( DeviceContext * device, const char * name ) {
 		char nameSpirv[ 1024 ];
 		sprintf_s( nameSpirv, 1024, "data/shaders/spirv/%s.%s.spirv", name, fileExtensions[ i ] );
 		if ( GetFileData( nameSpirv, &code, size ) ) {
-			m_vkShaderModules[ i ] = Shader::CreateShaderModule( device->m_vkDevice, (char*)code, size );
-			continue;
+			m_vkShaderModules[ i ] = CreateShaderModule( device->m_vkDevice, (char*)code, size );
 		}
 	}
 

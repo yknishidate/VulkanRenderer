@@ -45,11 +45,6 @@ bool Image::Create( DeviceContext * device, const CreateParms_t & parms ) {
 	image.samples = VK_SAMPLE_COUNT_1_BIT;
 	image.tiling = VK_IMAGE_TILING_OPTIMAL;
 	image.format = m_parms.format;
-	if ( VK_FORMAT_D32_SFLOAT == m_parms.format ) {
-		image.usage = VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
-	} else {
-		image.usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
-	}
 	image.usage = parms.usageFlags;
 
 	result = vkCreateImage( device->m_vkDevice, &image, nullptr, &m_vkImage );
@@ -99,7 +94,6 @@ bool Image::Create( DeviceContext * device, const CreateParms_t & parms ) {
 	}
 
 	imageView.format = m_parms.format;
-	imageView.subresourceRange = {};
 	if ( VK_FORMAT_D32_SFLOAT == m_parms.format ) {
 		imageView.subresourceRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT;
 	} else {

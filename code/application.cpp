@@ -353,7 +353,6 @@ void Application::ResizeWindow( int windowWidth, int windowHeight ) {
 		if ( !result ) {
 			printf( "Unable to build pipeline!\n" );
 			assert( 0 );
-			return;
 		}
 	}
 }
@@ -588,8 +587,6 @@ void Application::UpdateUniforms() {
 			camUp.Normalize();
 
 			extern FrameBuffer g_shadowFrameBuffer;
-			const int windowWidth = g_shadowFrameBuffer.m_parms.width;
-			const int windowHeight = g_shadowFrameBuffer.m_parms.height;
 
 			const float halfWidth = 60.0f;
 			const float xmin	= -halfWidth;

@@ -89,7 +89,7 @@ public:
 
 	void Cleanup( DeviceContext & deviceContext );
 
-	void DrawIndexed( VkCommandBuffer vkCommandBUffer );
+	void DrawIndexed( VkCommandBuffer vkCommandBuffer );
 };
 
 void FillCube( Model & model );

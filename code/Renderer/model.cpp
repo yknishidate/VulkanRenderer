@@ -4,7 +4,6 @@
 #include "model.h"
 #include "../Math/Vector.h"
 #include "../Fileio.h"
-#include <string.h>
 #include "../Physics/Shapes.h"
 #include <algorithm>
 
@@ -495,8 +494,6 @@ Model::MakeVBO
 ================================
 */
 bool Model::MakeVBO( DeviceContext * device ) {
-	VkCommandBuffer vkCommandBuffer = device->m_vkCommandBuffers[ 0 ];
-
 	int bufferSize;
 
 	// Create Vertex Buffer
@@ -538,13 +535,13 @@ void Model::Cleanup( DeviceContext & deviceContext ) {
 Model::DrawIndexed
 ====================================================
 */
-void Model::DrawIndexed( VkCommandBuffer vkCommandBUffer ) {
+void Model::DrawIndexed( VkCommandBuffer vkCommandBuffer ) {
 	// Bind the model
 	VkBuffer vertexBuffers[] = { m_vertexBuffer.m_vkBuffer };
 	VkDeviceSize offsets[] = { 0 };
-	vkCmdBindVertexBuffers( vkCommandBUffer, 0, 1, vertexBuffers, offsets );
-	vkCmdBindIndexBuffer( vkCommandBUffer, m_indexBuffer.m_vkBuffer, 0, VK_INDEX_TYPE_UINT32 );
+	vkCmdBindVertexBuffers( vkCommandBuffer, 0, 1, vertexBuffers, offsets );
+	vkCmdBindIndexBuffer( vkCommandBuffer, m_indexBuffer.m_vkBuffer, 0, VK_INDEX_TYPE_UINT32 );
 
 	// Issue draw command
-	vkCmdDrawIndexed( vkCommandBUffer, (uint32_t)m_indices.size(), 1, 0, 0, 0 );
+	vkCmdDrawIndexed( vkCommandBuffer, (uint32_t)m_indices.size(), 1, 0, 0, 0 );
 }

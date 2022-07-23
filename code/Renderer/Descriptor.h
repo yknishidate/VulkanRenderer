@@ -31,11 +31,11 @@ private:
 	int m_id;	// the id of the descriptor set to be used
 
 	int m_numBuffers;
-	static const int MAX_BUFFERS = 16;
+	static constexpr int MAX_BUFFERS = 16;
 	VkDescriptorBufferInfo m_bufferInfo[ MAX_BUFFERS ];
 
 	int m_numImages;
-	static const int MAX_IMAGEINFO = 16;
+	static constexpr int MAX_IMAGEINFO = 16;
 	VkDescriptorImageInfo m_imageInfo[ MAX_IMAGEINFO ];
 };
 
@@ -60,7 +60,7 @@ public:
 	bool Create( DeviceContext * device, const CreateParms_t & parms );
 	void Cleanup( DeviceContext * device );
 
-	static const int MAX_DESCRIPTOR_SETS = 256;
+	static constexpr int MAX_DESCRIPTOR_SETS = 256;
 
 	VkDescriptorPool m_vkDescriptorPool;
 	VkDescriptorSetLayout m_vkDescriptorSetLayout;

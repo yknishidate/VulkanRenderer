@@ -22,8 +22,8 @@ vfs::Link
 ====================================================
 */
 void vfs::Link( VkInstance instance ) {
-	vfs::vkCreateDebugReportCallbackEXT					= (PFN_vkCreateDebugReportCallbackEXT)vkGetInstanceProcAddr( instance, "vkCreateDebugReportCallbackEXT" );
-	vfs::vkDestroyDebugReportCallbackEXT				= (PFN_vkDestroyDebugReportCallbackEXT)vkGetInstanceProcAddr( instance, "vkDestroyDebugReportCallbackEXT" );
+	vkCreateDebugReportCallbackEXT					= (PFN_vkCreateDebugReportCallbackEXT)vkGetInstanceProcAddr( instance, "vkCreateDebugReportCallbackEXT" );
+	vkDestroyDebugReportCallbackEXT				= (PFN_vkDestroyDebugReportCallbackEXT)vkGetInstanceProcAddr( instance, "vkDestroyDebugReportCallbackEXT" );
 }
 
 /*
@@ -558,7 +558,7 @@ bool DeviceContext::CreateCommandBuffers() {
 
 	// Command Buffers
 	{
-		const int numBuffers = 16;
+		constexpr int numBuffers = 16;
 		m_vkCommandBuffers.resize( numBuffers );
 
 		VkCommandBufferAllocateInfo allocInfo = {};

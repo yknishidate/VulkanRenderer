@@ -39,20 +39,20 @@ bool Pipeline::Create( DeviceContext * device, const CreateParms_t & parms ) {
 		VkShaderStageFlagBits stage;
 		switch ( i ) {
 			default:
-			case 0: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_VERTEX_BIT; } break;
-			case 1: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT; } break;
-			case 2: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT; } break;
-			case 3: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_GEOMETRY_BIT; } break;
-			case 4: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_FRAGMENT_BIT; } break;
-			case 5: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_COMPUTE_BIT; } break;
-			case 6: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_RAYGEN_BIT_NV; } break;
-			case 7: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_ANY_HIT_BIT_NV; } break;
-			case 8: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_CLOSEST_HIT_BIT_NV; } break;
-			case 9: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_MISS_BIT_NV; } break;
-			case 10: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_INTERSECTION_BIT_NV; } break;
-			case 11: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_CALLABLE_BIT_NV; } break;
-			case 12: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_TASK_BIT_NV; } break;
-			case 13: { stage = VkShaderStageFlagBits::VK_SHADER_STAGE_MESH_BIT_NV; } break;
+			case 0: { stage = VK_SHADER_STAGE_VERTEX_BIT; } break;
+			case 1: { stage = VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT; } break;
+			case 2: { stage = VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT; } break;
+			case 3: { stage = VK_SHADER_STAGE_GEOMETRY_BIT; } break;
+			case 4: { stage = VK_SHADER_STAGE_FRAGMENT_BIT; } break;
+			case 5: { stage = VK_SHADER_STAGE_COMPUTE_BIT; } break;
+			case 6: { stage = VK_SHADER_STAGE_RAYGEN_BIT_NV; } break;
+			case 7: { stage = VK_SHADER_STAGE_ANY_HIT_BIT_NV; } break;
+			case 8: { stage = VK_SHADER_STAGE_CLOSEST_HIT_BIT_NV; } break;
+			case 9: { stage = VK_SHADER_STAGE_MISS_BIT_NV; } break;
+			case 10: { stage = VK_SHADER_STAGE_INTERSECTION_BIT_NV; } break;
+			case 11: { stage = VK_SHADER_STAGE_CALLABLE_BIT_NV; } break;
+			case 12: { stage = VK_SHADER_STAGE_TASK_BIT_NV; } break;
+			case 13: { stage = VK_SHADER_STAGE_MESH_BIT_NV; } break;
 		}
 
 		VkPipelineShaderStageCreateInfo shaderStageInfo = {};
@@ -227,7 +227,7 @@ bool Pipeline::CreateCompute( DeviceContext * device, const CreateParms_t & parm
 
 	VkPipelineShaderStageCreateInfo shaderStageInfo = {};
 	shaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
-	shaderStageInfo.stage = VkShaderStageFlagBits::VK_SHADER_STAGE_COMPUTE_BIT;
+	shaderStageInfo.stage = VK_SHADER_STAGE_COMPUTE_BIT;
 	shaderStageInfo.module = parms.shader->m_vkShaderModules[ Shader::SHADER_STAGE_COMPUTE ];
 	shaderStageInfo.pName = "main";
 

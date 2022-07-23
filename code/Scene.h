@@ -27,4 +27,3 @@ public:
 	std::vector< Constraint * >	m_constraints;
 	ManifoldCollector m_manifolds;
 };
-

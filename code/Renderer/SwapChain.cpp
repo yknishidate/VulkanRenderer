@@ -3,7 +3,6 @@
 //
 #include "SwapChain.h"
 #include "DeviceContext.h"
-#include "../Fileio.h"
 #include <assert.h>
 
 /*
