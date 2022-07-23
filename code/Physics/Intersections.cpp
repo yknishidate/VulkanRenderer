@@ -25,25 +25,3 @@ bool Intersect( Body * bodyA, Body * bodyB, const float dt, contact_t & contact 
 
 	return false;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

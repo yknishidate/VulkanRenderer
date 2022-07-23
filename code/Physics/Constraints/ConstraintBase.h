@@ -8,7 +8,6 @@
 #include "../../Math/Bounds.h"
 #include "../../Math/LCP.h"
 #include "../Body.h"
-#include <vector>
 
 /*
 ====================================================
